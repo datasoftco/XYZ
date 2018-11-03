@@ -6,11 +6,20 @@ mydb = mysql.connector.connect(
   passwd="githubGnu@2020",
   database="xyzDB"
 )
-
 print(xyzDB)
- mycursor = mydb.cursor()
 
-mycursor.execute("SHOW DATABASES")
 
-for r in mycursor:
+cursor = xyzDB.cursor()
+cursor.execute("CREATE DATABASE ListOfCodesDB")
+
+
+cursor = xyzDB.cursor()
+cursor.execute("SHOW DATABASES")
+
+for r in cursor:
   print(r)
+
+  
+cursor.execute("CREATE TABLE Subscribers (name VARCHAR(255), Description VARCHAR(255))")
+cursor.execute("CREATE TABLE Coders (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))")
+
